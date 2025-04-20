@@ -1,6 +1,6 @@
 # Adding ARM and ARM64 Support to Redroid Docker Images
 
-This repository provides two Redroid Docker images with **Houdini** integration, enabling Android ARM binary translation on x86_64 platforms. These images are particularly useful for testing ARM apps on Intel/AMD machines using Redroid.
+This repository provides Docker images with **Houdini** integration based on the **Redroid** image, enabling the execution of ARM-based Android apps on x86_64 platforms. These images are particularly useful for testing or integrating ARM applications on Intel/AMD processors using Redroid.
 
 ## Image List
 
@@ -63,7 +63,7 @@ services:
 
 # 添加了 ARM 和 ARM64 支持的 Redroid Docker 镜像
 
-本仓库提供两个在 **Redroid 镜像基础上集成 Houdini** 的 Docker 镜像，使得在 x86_64 平台上运行 ARM 架构 Android 应用成为可能，适用于 Intel 或 AMD 处理器环境，尤其适合使用 Redroid 进行测试或集成。
+本仓库提供基于 **Redroid 镜像** 集成 **Houdini** 的 Docker 镜像，使得在 x86_64 平台上运行 ARM 架构的 Android 应用成为可能。适用于 Intel 或 AMD 处理器环境，尤其适合使用 Redroid 进行应用测试或集成。
 
 ## 镜像列表
 
