@@ -76,7 +76,7 @@ services:
 ```yaml
 services:
   redroid:
-    image: <docker_image_tag>
+    image: <ndk_image_tag>
     tty: true
     stdin_open: true
     privileged: true
@@ -178,7 +178,7 @@ services:
 ```yaml
 services:
   redroid:
-    image: <docker_image_tag>
+    image: <ndk_image_tag>
     tty: true
     stdin_open: true
     privileged: true
