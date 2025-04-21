@@ -4,7 +4,7 @@ This repository provides Redroid Docker images integrated with **Houdini** or **
 
 ## Image List
 
-| Image Tag                              | Base Platform        | Houdini Version            | Houdini64 Version          | Supported Platforms        | Notes                                                         |
+| Image Tag                              | Source Platform       | Houdini Version            | Houdini64 Version          | Supported Platforms        | Notes                                                         |
 |----------------------------------------|----------------------|----------------------------|----------------------------|----------------------------|--------------------------------------------------------------|
 | `erstt/redroid:11.0.0_houdini_ChromeOS` | ChromeOS brya R112   | 11.0.1f_y.38795.g          | 11.0.1f_z.38795.g          | Intel (64-bit)             | Verified stable on Intel platform, not yet tested on AMD.    |
 | `erstt/redroid:11.0.0_houdini_R127`     | ChromeOS brask R127  | 11.0.2a.y.38870a           | 11.0.2a.z.38870a           | Intel (64-bit)             | Not yet tested.                                               |
@@ -106,7 +106,7 @@ services:
 
 ## 镜像列表
 
-| 镜像标签名                              | 基础平台            | Houdini 版本              | Houdini64 版本            | 支持平台                   | 说明                                                         |
+| 镜像标签名                              |    源平台           | Houdini 版本              | Houdini64 版本            | 支持平台                   | 说明                                                         |
 |----------------------------------------|---------------------|---------------------------|---------------------------|----------------------------|--------------------------------------------------------------|
 | `erstt/redroid:11.0.0_houdini_ChromeOS` | ChromeOS brya R112  | 11.0.1f_y.38795.g         | 11.0.1f_z.38795.g         | Intel（64 位）            | 已在 Intel 平台验证运行稳定，AMD 暂未测试。                |
 | `erstt/redroid:11.0.0_houdini_R127`     | ChromeOS brask R127 | 11.0.2a.y.38870a          | 11.0.2a.z.38870a          | Intel（64 位）            | 暂未测试。                                                   |
