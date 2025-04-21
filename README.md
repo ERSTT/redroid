@@ -4,17 +4,17 @@ This repository provides Redroid Docker images integrated with **Houdini** or **
 
 ## Image List
 
-| Houdini Image Tag                       | Source Platform      | Houdini Version            | Houdini64 Version          | Supported Platforms        | Notes                                                               |
-|:----------------------------------------|:--------------------:|:--------------------------:|:--------------------------:|:---------------------------|:--------------------------------------------------------------------|
-| `erstt/redroid:11.0.0_houdini_ChromeOS` | ChromeOS brya R112   | 11.0.1f_y.38795.g          | 11.0.1f_z.38795.g          | Intel                      | Verified stable on Intel platform.                                  |
-| `erstt/redroid:12.0.0_houdini_WSA`      | WSA 12L              | 12.0.0a_y.38818.m          | 12.0.0a_z.38818.m          | Intel / AMD                | Potential compatibility issues with some apps; testing recommended. |
-| `erstt/redroid:13.0.0_houdini_ChromeOS` | ChromeOS nissa R134  | 13.0.1_y.39540.g           | 13.0.1_z.39540.g           | Intel                      | Potential compatibility issues with some apps; testing recommended. |
-
 | NDK Translation Image Tag               | Source Platform      | NDK Translation Version | Supported Platforms        | Notes                                                        |
 |:----------------------------------------|:--------------------:|:-----------------------:|:---------------------------|:-------------------------------------------------------------|
 | `erstt/redroid:11.0.0_ndk_ChromeOS`     | ChromeOS grunt R134  | 0.2.2                   | Intel / AMD                | Verified stable on Intel / AMD platforms.                    |
 | `erstt/redroid:12.0.0_ndk_ChromeOS`     | ChromeOS skyrim R134 | 0.2.3                   | Intel / AMD                | Verified stable on Intel / AMD platforms.                    |
 | `erstt/redroid:13.0.0_ndk_ChromeOS`     | ChromeOS skyrim R134 | 0.2.3                   | Intel / AMD                | Verified stable on Intel / AMD platforms.                    |
+
+| Houdini Image Tag                       | Source Platform      | Houdini Version            | Houdini64 Version          | Supported Platforms        | Notes                                                               |
+|:----------------------------------------|:--------------------:|:--------------------------:|:--------------------------:|:---------------------------|:--------------------------------------------------------------------|
+| `erstt/redroid:11.0.0_houdini_ChromeOS` | ChromeOS brya R112   | 11.0.1f_y.38795.g          | 11.0.1f_z.38795.g          | Intel                      | Verified stable on Intel platform.                                  |
+| `erstt/redroid:12.0.0_houdini_WSA`      | WSA 12L              | 12.0.0a_y.38818.m          | 12.0.0a_z.38818.m          | Intel / AMD                | Potential compatibility issues with some apps; testing recommended. |
+| `erstt/redroid:13.0.0_houdini_ChromeOS` | ChromeOS nissa R134  | 13.0.1_y.39540.g           | 13.0.1_z.39540.g           | Intel                      | Potential compatibility issues with some apps; testing recommended. |
 
 ## Usage Suggestions
 
@@ -49,33 +49,6 @@ This repository provides Redroid Docker images integrated with **Houdini** or **
 
      [https://www.google.com/android/uncertified/](https://www.google.com/android/uncertified/)
 
-## Houdini Image Docker Compose Example
-
-```yaml
-services:
-  redroid:
-    image: <houdini_image_tag>
-    tty: true
-    stdin_open: true
-    privileged: true
-    ports:
-      - 5555:5555
-    volumes:
-      - /path/to/your/directory:/data
-    command:
-      - androidboot.redroid_gpu_mode=auto
-      - androidboot.redroid_fps=60
-      - androidboot.use_memfd=1
-      - ro.product.cpu.abilist=x86_64,x86,arm64-v8a,armeabi-v7a,armeabi
-      - ro.product.cpu.abilist32=x86,armeabi-v7a,armeabi
-      - ro.product.cpu.abilist64=x86_64,arm64-v8a
-      - ro.dalvik.vm.isa.arm=x86
-      - ro.dalvik.vm.isa.arm64=x86_64
-      - ro.enable.native.bridge.exec=1
-      - ro.enable.native.bridge.exec64=1
-      - ro.dalvik.vm.native.bridge=libhoudini.so
-```
-
 ## NDK Image Docker Compose Example
 
 ```yaml
@@ -103,6 +76,33 @@ services:
       - ro.dalvik.vm.native.bridge=libndk_translation.so
 ```
 
+## Houdini Image Docker Compose Example
+
+```yaml
+services:
+  redroid:
+    image: <houdini_image_tag>
+    tty: true
+    stdin_open: true
+    privileged: true
+    ports:
+      - 5555:5555
+    volumes:
+      - /path/to/your/directory:/data
+    command:
+      - androidboot.redroid_gpu_mode=auto
+      - androidboot.redroid_fps=60
+      - androidboot.use_memfd=1
+      - ro.product.cpu.abilist=x86_64,x86,arm64-v8a,armeabi-v7a,armeabi
+      - ro.product.cpu.abilist32=x86,armeabi-v7a,armeabi
+      - ro.product.cpu.abilist64=x86_64,arm64-v8a
+      - ro.dalvik.vm.isa.arm=x86
+      - ro.dalvik.vm.isa.arm64=x86_64
+      - ro.enable.native.bridge.exec=1
+      - ro.enable.native.bridge.exec64=1
+      - ro.dalvik.vm.native.bridge=libhoudini.so
+```
+
 ---
 
 # 支持 ARM / ARM64 的 Redroid Docker 镜像
@@ -111,17 +111,17 @@ services:
 
 ## 镜像列表
 
-| Houdini 镜像标签名                       | 源平台               | Houdini 版本               | Houdini64 版本              | 支持平台                   | 说明                                     |
-|:----------------------------------------|:--------------------:|:--------------------------:|:--------------------------:|:---------------------------|:-----------------------------------------|
-| `erstt/redroid:11.0.0_houdini_ChromeOS` | ChromeOS brya R112   | 11.0.1f_y.38795.g          | 11.0.1f_z.38795.g          | Intel                      | 已在 Intel 平台验证运行稳定。              |
-| `erstt/redroid:12.0.0_houdini_WSA`      | WSA 12L              | 12.0.0a_y.38818.m          | 12.0.0a_z.38818.m          | Intel / AMD                | 部分应用存在兼容性问题，建议测试验证后使用。 |
-| `erstt/redroid:13.0.0_houdini_ChromeOS` | ChromeOS nissa R134  | 13.0.1_y.39540.g           | 13.0.1_z.39540.g           | Intel                      | 部分应用存在兼容性问题，建议测试验证后使用。 |
-
 | NDK Translation 镜像标签名               | Source Platform      | NDK Translation 版本    | 支持平台                    | 说明                                        |
 |:----------------------------------------|:--------------------:|:-----------------------:|:---------------------------|:--------------------------------------------|
 | `erstt/redroid:11.0.0_ndk_ChromeOS`     | ChromeOS grunt R134  | 0.2.2                   | Intel / AMD                | 已在 Intel / AMD 平台验证运行稳定。           |
 | `erstt/redroid:12.0.0_ndk_ChromeOS`     | ChromeOS skyrim R134 | 0.2.3                   | Intel / AMD                | 已在 Intel / AMD 平台验证运行稳定。           |
 | `erstt/redroid:13.0.0_ndk_ChromeOS`     | ChromeOS skyrim R134 | 0.2.3                   | Intel / AMD                | 已在 Intel / AMD 平台验证运行稳定。           |
+
+| Houdini 镜像标签名                       | 源平台               | Houdini 版本               | Houdini64 版本              | 支持平台                   | 说明                                     |
+|:----------------------------------------|:--------------------:|:--------------------------:|:--------------------------:|:---------------------------|:-----------------------------------------|
+| `erstt/redroid:11.0.0_houdini_ChromeOS` | ChromeOS brya R112   | 11.0.1f_y.38795.g          | 11.0.1f_z.38795.g          | Intel                      | 已在 Intel 平台验证运行稳定。              |
+| `erstt/redroid:12.0.0_houdini_WSA`      | WSA 12L              | 12.0.0a_y.38818.m          | 12.0.0a_z.38818.m          | Intel / AMD                | 部分应用存在兼容性问题，建议测试验证后使用。 |
+| `erstt/redroid:13.0.0_houdini_ChromeOS` | ChromeOS nissa R134  | 13.0.1_y.39540.g           | 13.0.1_z.39540.g           | Intel                      | 部分应用存在兼容性问题，建议测试验证后使用。 |
 
 ## 使用建议
 
@@ -156,34 +156,7 @@ services:
 
      [https://www.google.com/android/uncertified/](https://www.google.com/android/uncertified/)
 
-## houdini 镜像 Docker Compose 示例
-
-```yaml
-services:
-  redroid:
-    image: <houdini_image_tag>
-    tty: true
-    stdin_open: true
-    privileged: true
-    ports:
-      - 5555:5555
-    volumes:
-      - /path/to/your/directory:/data
-    command:
-      - androidboot.redroid_gpu_mode=auto
-      - androidboot.redroid_fps=60
-      - androidboot.use_memfd=1
-      - ro.product.cpu.abilist=x86_64,x86,arm64-v8a,armeabi-v7a,armeabi
-      - ro.product.cpu.abilist32=x86,armeabi-v7a,armeabi
-      - ro.product.cpu.abilist64=x86_64,arm64-v8a
-      - ro.dalvik.vm.isa.arm=x86
-      - ro.dalvik.vm.isa.arm64=x86_64
-      - ro.enable.native.bridge.exec=1
-      - ro.enable.native.bridge.exec64=1
-      - ro.dalvik.vm.native.bridge=libhoudini.so
-```
-
-## ndk 镜像 Docker Compose 示例
+## NDK 镜像 Docker Compose 示例
 
 ```yaml
 services:
@@ -210,6 +183,32 @@ services:
       - ro.dalvik.vm.native.bridge=libndk_translation.so
 ```
 
+## Houdini 镜像 Docker Compose 示例
+
+```yaml
+services:
+  redroid:
+    image: <houdini_image_tag>
+    tty: true
+    stdin_open: true
+    privileged: true
+    ports:
+      - 5555:5555
+    volumes:
+      - /path/to/your/directory:/data
+    command:
+      - androidboot.redroid_gpu_mode=auto
+      - androidboot.redroid_fps=60
+      - androidboot.use_memfd=1
+      - ro.product.cpu.abilist=x86_64,x86,arm64-v8a,armeabi-v7a,armeabi
+      - ro.product.cpu.abilist32=x86,armeabi-v7a,armeabi
+      - ro.product.cpu.abilist64=x86_64,arm64-v8a
+      - ro.dalvik.vm.isa.arm=x86
+      - ro.dalvik.vm.isa.arm64=x86_64
+      - ro.enable.native.bridge.exec=1
+      - ro.enable.native.bridge.exec64=1
+      - ro.dalvik.vm.native.bridge=libhoudini.so
+```
 
 ## Credits
 
