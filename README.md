@@ -4,10 +4,13 @@ This repository provides Docker images with **Houdini** integration based on the
 
 ## Image List
 
-| Tag Name                   | Base Platform  | Houdini Version          | Houdini64 Version         | Supported Platforms      | Notes                                                                 |
-|----------------------------|----------------|---------------------------|----------------------------|---------------------------|------------------------------------------------------------------------|
-| `11.0.0_houdini_ChromeOS`  | ChromeOS brya  | 11.0.1f_y.38795.g         | 11.0.1f_z.38795.g          | Intel (64-bit)            | Verified to run stably on Intel platforms. Not yet tested on AMD.     |
-| `12.0.0_houdini_WSA`       | WSA 12L        | 12.0.0a_y.38818.m         | 12.0.0a_z.38818.m          | Intel / AMD (64-bit)      | Compatibility issues found with some applications. Testing recommended before use. |
+| Tag Name                            | Base Platform         | Houdini Version           | Houdini64 Version         | Supported Platforms     | Notes                                                                 |
+|------------------------------------|------------------------|---------------------------|---------------------------|-------------------------|-----------------------------------------------------------------------|
+| `erstt/redroid:11.0.0_houdini_ChromeOS` | ChromeOS brya R112    | 11.0.1f_y.38795.g         | 11.0.1f_z.38795.g         | Intel (64-bit)          | Verified to run stably on Intel platforms. Not tested on AMD.         |
+| `erstt/redroid:11.0.0_houdini_R127`     | ChromeOS brask R127   | 11.0.2a.y.38870a          | 11.0.2a.z.38870a          | Intel (64-bit)          | Not tested yet.                                                       |
+| `erstt/redroid:11.0.0_ndk_ChromeOS`     | ChromeOS grunt R134   | N/A                       | N/A                       | Intel / AMD (64-bit)    | Verified to run stably on AMD platforms. Not tested on Intel.         |
+| `erstt/redroid:12.0.0_houdini_WSA`      | WSA 12L               | 12.0.0a_y.38818.m         | 12.0.0a_z.38818.m         | Intel / AMD (64-bit)    | Some apps may have compatibility issues. Testing before use is recommended. |
+
 
 ## Recommended Usage
 
@@ -67,12 +70,12 @@ services:
 
 ## 镜像列表
 
-| 标签名                     | 基础平台       | Houdini 版本              | Houdini64 版本            | 支持平台              | 说明                                                         |
-|----------------------------|---------------|---------------------------|---------------------------|----------------------|--------------------------------------------------------------|
-| `11.0.0_houdini_ChromeOS`  | ChromeOS brya R112 | 11.0.1f_y.38795.g         | 11.0.1f_z.38795.g         | Intel (64位)         | 已在 Intel 平台上验证运行稳定，AMD 暂未测试。               |
-| `11.0.0_houdini_R127`  | ChromeOS brask R127 | 11.0.2a.y.38870a         | 11.0.2a.z.38870a         | Intel (64位)         | 暂未测试。               |
-| `12.0.0_houdini_WSA`       | WSA 12L       | 12.0.0a_y.38818.m         | 12.0.0a_z.38818.m         | Intel / AMD (64位)   | 部分应用存在兼容性问题，建议在测试验证后使用。               |
-
+| 标签名                             | 基础平台            | Houdini 版本              | Houdini64 版本            | 支持平台              | 说明                                                         |
+|------------------------------------|---------------------|---------------------------|---------------------------|------------------------|--------------------------------------------------------------|
+| `erstt/redroid:11.0.0_houdini_ChromeOS` | ChromeOS brya R112  | 11.0.1f_y.38795.g         | 11.0.1f_z.38795.g         | Intel (64位)           | 已在 Intel 平台上验证运行稳定，AMD 暂未测试。               |
+| `erstt/redroid:11.0.0_houdini_R127`     | ChromeOS brask R127 | 11.0.2a.y.38870a          | 11.0.2a.z.38870a          | Intel (64位)           | 暂未测试。                                                   |
+| `erstt/redroid:11.0.0_ndk_ChromeOS`     | ChromeOS grunt R134 | N/A                       | N/A                       | Intel / AMD (64位)     | 已在 AMD 平台上验证运行稳定，Intel 暂未测试。               |
+| `erstt/redroid:12.0.0_houdini_WSA`      | WSA 12L             | 12.0.0a_y.38818.m         | 12.0.0a_z.38818.m         | Intel / AMD (64位)     | 部分应用存在兼容性问题，建议在测试验证后使用。               |
 
 ## 使用建议
 
