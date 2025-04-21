@@ -21,7 +21,7 @@ This repository provides Redroid Docker images integrated with **Houdini** or **
 
 - The images are only suitable for **x86_64 architecture** devices.
 - When starting the container, make sure to configure device mapping and mount options properly.
-- If stability is a priority, it’s recommended to choose the **ChromeOS**-based images, especially on Intel processors.
+- Where to file issues: [https://github.com/ERSTT/redroid/issues⁠](https://github.com/ERSTT/redroid/issues)
 - If you only need to run games supporting arm64-v8a (e.g., Arknights), it’s suggested to remove the armeabi-v7a and armeabi ABIs for better stability. You can use the following command to install:
 
   ```bash
@@ -129,7 +129,7 @@ services:
 
 - 镜像仅适用于 **x86_64 架构** 的设备。
 - 启动容器时请合理配置设备映射与挂载选项。
-- 若对稳定性有较高要求，推荐优先使用基于 **ChromeOS** 的镜像（特别是在 Intel 处理器平台上）。
+- 在哪里提交问题: [https://github.com/ERSTT/redroid/issues⁠](https://github.com/ERSTT/redroid/issues)
 - 若仅运行支持 arm64-v8a 的游戏（例如明日方舟），建议删除 armeabi-v7a 和 armeabi 的 ABI，以提高稳定性。可以使用以下命令安装：
 
   ```bash
