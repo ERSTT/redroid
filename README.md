@@ -4,12 +4,18 @@ This repository provides Redroid Docker images integrated with **Houdini** or **
 
 ## Image List
 
-| Image Tag                              | Source Platform       | Houdini Version            | Houdini64 Version          | Supported Platforms        | Notes                                                         |
-|----------------------------------------|----------------------|----------------------------|----------------------------|----------------------------|--------------------------------------------------------------|
-| `erstt/redroid:11.0.0_houdini_ChromeOS` | ChromeOS brya R112   | 11.0.1f_y.38795.g          | 11.0.1f_z.38795.g          | Intel (64-bit)             | Verified stable on Intel platform, not yet tested on AMD.    |
-| `erstt/redroid:11.0.0_houdini_R127`     | ChromeOS brask R127  | 11.0.2a.y.38870a           | 11.0.2a.z.38870a           | Intel (64-bit)             | Not yet tested.                                               |
-| `erstt/redroid:11.0.0_ndk_ChromeOS`     | ChromeOS grunt R134  | N/A                        | N/A                        | Intel / AMD (64-bit)       | Verified stable on AMD platform, not yet tested on Intel.    |
+| Houdini Image Tag                       | Source Platform      | Houdini Version            | Houdini64 Version          | Supported Platforms        | Notes                                                             |
+|:----------------------------------------|:--------------------:|:--------------------------:|:--------------------------:|:---------------------------|:------------------------------------------------------------------|
+| `erstt/redroid:11.0.0_houdini_ChromeOS` | ChromeOS brya R112   | 11.0.1f_y.38795.g          | 11.0.1f_z.38795.g          | Intel (64-bit)             | Verified stable on Intel platform, not yet tested on AMD.         |
+| `erstt/redroid:11.0.0_houdini_R127`     | ChromeOS brask R127  | 11.0.2a.y.38870a           | 11.0.2a.z.38870a           | Intel (64-bit)             | Not yet tested.                                                   |
 | `erstt/redroid:12.0.0_houdini_WSA`      | WSA 12L              | 12.0.0a_y.38818.m          | 12.0.0a_z.38818.m          | Intel / AMD (64-bit)       | Some apps may have compatibility issues, recommended for testing. |
+| `erstt/redroid:13.0.0_houdini_ChromeOS` | ChromeOS nissa R134  | 13.0.1_y.39540.g           | 13.0.1_z.39540.g           | Intel (64-bit)             | Some apps may have compatibility issues, recommended for testing. |
+
+| NDK Translation Image Tag               | Source Platform      | NDK Translation Version | Supported Platforms        | Notes                                                        |
+|:----------------------------------------|:--------------------:|:-----------------------:|:---------------------------|:-------------------------------------------------------------|
+| `erstt/redroid:11.0.0_ndk_ChromeOS`     | ChromeOS grunt R134  | 0.2.2                   | Intel / AMD (64-bit)       | Verified stable on AMD platform, not yet tested on Intel.    |
+| `erstt/redroid:12.0.0_ndk_ChromeOS`     | ChromeOS skyrim R134 | 0.2.3                   | Intel / AMD (64-bit)       | Verified stable on AMD platform, not yet tested on Intel.    |
+| `erstt/redroid:13.0.0_ndk_ChromeOS`     | ChromeOS skyrim R134 | 0.2.3                   | Intel / AMD (64-bit)       | Verified stable on AMD platform, not yet tested on Intel.    |
 
 ## Usage Suggestions
 
@@ -106,12 +112,18 @@ services:
 
 ## 镜像列表
 
-| 镜像标签名                              |    源平台           | Houdini 版本              | Houdini64 版本            | 支持平台                   | 说明                                                         |
-|----------------------------------------|---------------------|---------------------------|---------------------------|----------------------------|--------------------------------------------------------------|
-| `erstt/redroid:11.0.0_houdini_ChromeOS` | ChromeOS brya R112  | 11.0.1f_y.38795.g         | 11.0.1f_z.38795.g         | Intel（64 位）            | 已在 Intel 平台验证运行稳定，AMD 暂未测试。                |
-| `erstt/redroid:11.0.0_houdini_R127`     | ChromeOS brask R127 | 11.0.2a.y.38870a          | 11.0.2a.z.38870a          | Intel（64 位）            | 暂未测试。                                                   |
-| `erstt/redroid:11.0.0_ndk_ChromeOS`     | ChromeOS grunt R134 | N/A                       | N/A                       | Intel / AMD（64 位）       | 已在 AMD 平台验证运行稳定，Intel 暂未测试。                |
-| `erstt/redroid:12.0.0_houdini_WSA`      | WSA 12L             | 12.0.0a_y.38818.m         | 12.0.0a_z.38818.m         | Intel / AMD（64 位）       | 部分应用存在兼容性问题，建议测试验证后使用。               |
+| Houdini 镜像标签名                       | 源平台               | Houdini 版本               | Houdini64 版本              | 支持平台                   | 说明                                     |
+|:----------------------------------------|:--------------------:|:--------------------------:|:--------------------------:|:---------------------------|:-----------------------------------------|
+| `erstt/redroid:11.0.0_houdini_ChromeOS` | ChromeOS brya R112   | 11.0.1f_y.38795.g          | 11.0.1f_z.38795.g          | Intel (64-bit)             | 已在 Intel 平台验证运行稳定，AMD 暂未测试。 |
+| `erstt/redroid:11.0.0_houdini_R127`     | ChromeOS brask R127  | 11.0.2a.y.38870a           | 11.0.2a.z.38870a           | Intel (64-bit)             | 暂未测试。                                |
+| `erstt/redroid:12.0.0_houdini_WSA`      | WSA 12L              | 12.0.0a_y.38818.m          | 12.0.0a_z.38818.m          | Intel / AMD (64-bit)       | 部分应用存在兼容性问题，建议测试验证后使用。 |
+| `erstt/redroid:13.0.0_houdini_ChromeOS` | ChromeOS nissa R134  | 13.0.1_y.39540.g           | 13.0.1_z.39540.g           | Intel (64-bit)             | 部分应用存在兼容性问题，建议测试验证后使用。 |
+
+| NDK Translation 镜像标签名               | Source Platform      | NDK Translation 版本    | 支持平台                    | 说明                                        |
+|:----------------------------------------|:--------------------:|:-----------------------:|:---------------------------|:--------------------------------------------|
+| `erstt/redroid:11.0.0_ndk_ChromeOS`     | ChromeOS grunt R134  | 0.2.2                   | Intel / AMD (64-bit)       | 已在 AMD 平台验证运行稳定，Intel 暂未测试。    |
+| `erstt/redroid:12.0.0_ndk_ChromeOS`     | ChromeOS skyrim R134 | 0.2.3                   | Intel / AMD (64-bit)       | 已在 AMD 平台验证运行稳定，Intel 暂未测试。    |
+| `erstt/redroid:13.0.0_ndk_ChromeOS`     | ChromeOS skyrim R134 | 0.2.3                   | Intel / AMD (64-bit)       | 已在 AMD 平台验证运行稳定，Intel 暂未测试。    |
 
 ## 使用建议
 
