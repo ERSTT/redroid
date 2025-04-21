@@ -221,3 +221,5 @@ services:
 - [vendor_intel_proprietary_houdini](https://github.com/supremegamers/vendor_intel_proprietary_houdini)  
 - [chromeos-update-directory](https://github.com/jay0lee/chromeos-update-directory)  
 - [android_vendor_google_chromeos-x86](https://github.com/BlissRoms-x86/android_vendor_google_chromeos-x86)
+- [chromeos_ndk](https://github.com/ER5TT/ndk/tree/grunt_R134)
+- [chromeos_houdini](https://github.com/ER5TT/houdini/tree/brask_R127)
