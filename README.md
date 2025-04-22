@@ -9,6 +9,7 @@ This repository provides Redroid Docker images integrated with **Houdini** or **
 | `erstt/redroid:11.0.0_ndk_ChromeOS`     | ChromeOS grunt R134  | 0.2.2                   | Intel / AMD                | Verified stable on Intel / AMD platforms.                    |
 | `erstt/redroid:12.0.0_ndk_ChromeOS`     | ChromeOS skyrim R134 | 0.2.3                   | Intel / AMD                | Verified stable on Intel / AMD platforms.                    |
 | `erstt/redroid:13.0.0_ndk_ChromeOS`     | ChromeOS skyrim R134 | 0.2.3                   | Intel / AMD                | Verified stable on Intel / AMD platforms.                    |
+| `erstt/redroid:15.0.0_ndk_AVD`          | AVD-x86_64-ext15_r01 | 0.2.3                   | Intel / AMD                | Verified stable on Intel / AMD platforms. Translation supports arm64-v8a only.|
 
 | Houdini Image Tag                       | Source Platform      | Houdini Version            | Houdini64 Version          | Supported Platforms        | Notes                                                               |
 |:----------------------------------------|:--------------------:|:--------------------------:|:--------------------------:|:---------------------------|:--------------------------------------------------------------------|
@@ -116,6 +117,7 @@ services:
 | `erstt/redroid:11.0.0_ndk_ChromeOS`     | ChromeOS grunt R134  | 0.2.2                   | Intel / AMD                | 已在 Intel / AMD 平台测试运行稳定。           |
 | `erstt/redroid:12.0.0_ndk_ChromeOS`     | ChromeOS skyrim R134 | 0.2.3                   | Intel / AMD                | 已在 Intel / AMD 平台测试运行稳定。           |
 | `erstt/redroid:13.0.0_ndk_ChromeOS`     | ChromeOS skyrim R134 | 0.2.3                   | Intel / AMD                | 已在 Intel / AMD 平台测试运行稳定。           |
+| `erstt/redroid:15.0.0_ndk_AVD`          | AVD-x86_64-ext15_r01 | 0.2.3                   | Intel / AMD                | 已在 Intel / AMD 平台测试运行稳定。仅支持转译arm64-v8a。|
 
 | Houdini 镜像标签名                       | 源平台               | Houdini 版本               | Houdini64 版本              | 支持平台                   | 说明                                     |
 |:----------------------------------------|:--------------------:|:--------------------------:|:--------------------------:|:---------------------------|:-----------------------------------------|
