@@ -5,7 +5,7 @@
 
 ## 镜像列表
 
-| NDK Translation 镜像标签名               | Source Platform      | NDK Translation 版本    | 支持平台                    | 说明                                        |
+| NDK Translation 镜像标签名               | 源平台               | NDK Translation 版本    | 支持平台                    | 说明                                        |
 |:----------------------------------------|:--------------------:|:-----------------------:|:---------------------------|:--------------------------------------------|
 | `erstt/redroid:11.0.0_ndk_ChromeOS`     | ChromeOS grunt R134  | 0.2.2                   | Intel / AMD                | 已在 Intel / AMD 平台测试运行稳定。           |
 | `erstt/redroid:12.0.0_ndk_ChromeOS`     | ChromeOS skyrim R134 | 0.2.3                   | Intel / AMD                | 已在 Intel / AMD 平台测试运行稳定。           |
