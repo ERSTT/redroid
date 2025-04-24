@@ -31,12 +31,7 @@ The following image variants are also available:
 - The images are only suitable for **x86_64 architecture** devices.
 - When starting the container, make sure to configure device mapping and mount options properly.
 - Where to file issues: [https://github.com/ERSTT/redroid/issues⁠](https://github.com/ERSTT/redroid/issues)
-- If you only need to run games supporting arm64-v8a (e.g., Arknights), it’s suggested to remove the armeabi-v7a and armeabi ABIs for better stability. You can use the following command to install:
-
-  ```bash
-  pm install --abi arm64-v8a your_app.apk
-  ```
-
+- If you only need to run games supporting arm64-v8a (e.g., Arknights), it’s suggested to remove the armeabi-v7a and armeabi ABIs for better stability.
 - The device has not been certified by the Play Protect mechanism. To proceed, follow these steps:
 
   1. Use ADB to retrieve the device ID:
