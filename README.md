@@ -18,6 +18,14 @@ This repository provides Redroid Docker images integrated with **Houdini** or **
 | `erstt/redroid:12.0.0_houdini_WSA`      | WSA 12L              | 12.0.0a_y.38818.m          | 12.0.0a_z.38818.m          | Intel / AMD                | Potential compatibility issues with some apps; testing recommended. |
 | `erstt/redroid:13.0.0_houdini_ChromeOS` | ChromeOS nissa R134  | 13.0.1_y.39540.g           | 13.0.1_z.39540.g           | Intel                      | Potential compatibility issues with some apps; testing recommended. |
 
+#### Additional Notes:
+The following image variants are also available:
+
+`erstt/<android_version>_<houdini_or_ndk><_magisk><_litegapps>_ChromeOS`
+
+- `_magisk` (optional): Magisk pre-installed
+- `_litegapps` (optional): Lightweight Google Apps pre-installed
+
 ## Usage Suggestions
 
 - The images are only suitable for **x86_64 architecture** devices.
