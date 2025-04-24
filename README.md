@@ -10,7 +10,7 @@ This repository provides Redroid Docker images integrated with **Houdini** or **
 | `erstt/redroid:11.0.0_ndk_ChromeOS`     | ChromeOS grunt R134  | 0.2.2                   | Intel / AMD                | Verified stable on Intel / AMD platforms.                    |
 | `erstt/redroid:12.0.0_ndk_ChromeOS`     | ChromeOS skyrim R134 | 0.2.3                   | Intel / AMD                | Verified stable on Intel / AMD platforms.                    |
 | `erstt/redroid:13.0.0_ndk_ChromeOS`     | ChromeOS skyrim R134 | 0.2.3                   | Intel / AMD                | Verified stable on Intel / AMD platforms.                    |
-| `erstt/redroid:15.0.0_ndk_AVD`          | AVD-x86_64-ext15_r01 | 0.2.3                   | Intel / AMD                | Verified stable on Intel / AMD platforms. Translation supports arm64-v8a only.|
+| `erstt/redroid:15.0.0_ndk_AVD`          | AVD_35_ext15_r01     | 0.2.3                   | Intel / AMD                | Verified stable on Intel / AMD platforms. Translation supports arm64-v8a only.|
 
 | Houdini Image Tag                       | Source Platform      | Houdini Version            | Houdini64 Version          | Supported Platforms        | Notes                                                               |
 |:----------------------------------------|:--------------------:|:--------------------------:|:--------------------------:|:---------------------------|:--------------------------------------------------------------------|
