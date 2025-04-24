@@ -1,0 +1,115 @@
+# 支持 ARM / ARM64 的 Redroid Docker 镜像
+
+本仓库提供集成 **Houdini** 或 **NDK Translation** 的 Redroid Docker 镜像，使得在 x86_64 平台（如 Intel / AMD 处理器）上运行 ARM 架构的 Android 应用成为可能，特别适合用于应用测试与集成开发场景。
+
+## 镜像列表
+
+| NDK Translation 镜像标签名               | Source Platform      | NDK Translation 版本    | 支持平台                    | 说明                                        |
+|:----------------------------------------|:--------------------:|:-----------------------:|:---------------------------|:--------------------------------------------|
+| `erstt/redroid:11.0.0_ndk_ChromeOS`     | ChromeOS grunt R134  | 0.2.2                   | Intel / AMD                | 已在 Intel / AMD 平台测试运行稳定。           |
+| `erstt/redroid:12.0.0_ndk_ChromeOS`     | ChromeOS skyrim R134 | 0.2.3                   | Intel / AMD                | 已在 Intel / AMD 平台测试运行稳定。           |
+| `erstt/redroid:13.0.0_ndk_ChromeOS`     | ChromeOS skyrim R134 | 0.2.3                   | Intel / AMD                | 已在 Intel / AMD 平台测试运行稳定。           |
+| `erstt/redroid:15.0.0_ndk_AVD`          | AVD-x86_64-ext15_r01 | 0.2.3                   | Intel / AMD                | 已在 Intel / AMD 平台测试运行稳定。仅支持转译arm64-v8a。|
+
+| Houdini 镜像标签名                       | 源平台               | Houdini 版本               | Houdini64 版本              | 支持平台                   | 说明                                     |
+|:----------------------------------------|:--------------------:|:--------------------------:|:--------------------------:|:---------------------------|:-----------------------------------------|
+| `erstt/redroid:11.0.0_houdini_ChromeOS` | ChromeOS brya R112   | 11.0.1f_y.38795.g          | 11.0.1f_z.38795.g          | Intel                      | 已在 Intel 平台测试运行稳定。              |
+| `erstt/redroid:12.0.0_houdini_WSA`      | WSA 12L              | 12.0.0a_y.38818.m          | 12.0.0a_z.38818.m          | Intel / AMD                | 部分应用存在兼容性问题，建议测试验证后使用。 |
+| `erstt/redroid:13.0.0_houdini_ChromeOS` | ChromeOS nissa R134  | 13.0.1_y.39540.g           | 13.0.1_z.39540.g           | Intel                      | 部分应用存在兼容性问题，建议测试验证后使用。 |
+
+## 使用建议
+
+- 镜像仅适用于 **x86_64 架构** 的设备。
+- 启动容器时请合理配置设备映射与挂载选项。
+- 在哪里提交问题: [https://github.com/ERSTT/redroid/issues⁠](https://github.com/ERSTT/redroid/issues)
+- 若仅运行支持 arm64-v8a 的游戏（例如明日方舟），建议删除 armeabi-v7a 和 armeabi 的 ABI，以提高稳定性。可以使用以下命令安装：
+
+  ```bash
+  pm install --abi arm64-v8a your_app.apk
+  ```
+
+- 本设备未获得 Play 保护机制认证，如需使用，请执行以下步骤：
+
+  1. 使用 ADB 获取设备 ID：
+
+     ```bash
+     adb root
+     adb shell 'sqlite3 /data/data/com.google.android.gsf/databases/gservices.db \
+     "select * from main where name = \"android_id\";"'
+     ```
+
+     或者
+
+     ```bash
+     adb shell
+     su
+     sqlite3 /data/data/com.google.android.gsf/databases/gservices.db "select * from main where name = \"android_id\";"
+     ```
+
+  2. 获取的设备 ID 可在以下网址进行注册：
+
+     [https://www.google.com/android/uncertified/](https://www.google.com/android/uncertified/)
+
+## NDK 镜像 Docker Compose 示例
+
+```yaml
+services:
+  redroid:
+    image: <ndk_image_tag>
+    tty: true
+    stdin_open: true
+    privileged: true
+    ports:
+      - 5555:5555
+    volumes:
+      - /path/to/your/directory:/data
+    command:
+      - androidboot.redroid_gpu_mode=auto
+      - androidboot.redroid_fps=60
+      - androidboot.use_memfd=1
+      - ro.product.cpu.abilist=x86_64,x86,arm64-v8a,armeabi-v7a,armeabi
+      - ro.product.cpu.abilist32=x86,armeabi-v7a,armeabi
+      - ro.product.cpu.abilist64=x86_64,arm64-v8a
+      - ro.dalvik.vm.isa.arm=x86
+      - ro.dalvik.vm.isa.arm64=x86_64
+      - ro.enable.native.bridge.exec=1
+      - ro.dalvik.vm.native.bridge=libndk_translation.so
+```
+
+## Houdini 镜像 Docker Compose 示例
+
+```yaml
+services:
+  redroid:
+    image: <houdini_image_tag>
+    tty: true
+    stdin_open: true
+    privileged: true
+    ports:
+      - 5555:5555
+    volumes:
+      - /path/to/your/directory:/data
+    command:
+      - androidboot.redroid_gpu_mode=auto
+      - androidboot.redroid_fps=60
+      - androidboot.use_memfd=1
+      - ro.product.cpu.abilist=x86_64,x86,arm64-v8a,armeabi-v7a,armeabi
+      - ro.product.cpu.abilist32=x86,armeabi-v7a,armeabi
+      - ro.product.cpu.abilist64=x86_64,arm64-v8a
+      - ro.dalvik.vm.isa.arm=x86
+      - ro.dalvik.vm.isa.arm64=x86_64
+      - ro.enable.native.bridge.exec=1
+      - ro.enable.native.bridge.exec64=1
+      - ro.dalvik.vm.native.bridge=libhoudini.so
+```
+
+## Credits
+
+- [remote-android](https://github.com/remote-android)  
+- [redroid-script](https://github.com/ayasa520/redroid-script)  
+- [Magisk Delta](https://huskydg.github.io/magisk-files/)  
+- [vendor_intel_proprietary_houdini](https://github.com/supremegamers/vendor_intel_proprietary_houdini)  
+- [chromeos-update-directory](https://github.com/jay0lee/chromeos-update-directory)  
+- [android_vendor_google_chromeos-x86](https://github.com/BlissRoms-x86/android_vendor_google_chromeos-x86)
+- [chromeos_ndk](https://github.com/ER5TT/ndk/tree/grunt_R134)
+- [chromeos_houdini](https://github.com/ER5TT/houdini/tree/brask_R127)
