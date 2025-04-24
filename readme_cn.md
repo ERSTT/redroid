@@ -1,3 +1,4 @@
+## [English](https://github.com/ERSTT/redroid/blob/main/readme.md) / 简体中文
 # 支持 ARM / ARM64 的 Redroid Docker 镜像
 
 本仓库提供集成 **Houdini** 或 **NDK Translation** 的 Redroid Docker 镜像，使得在 x86_64 平台（如 Intel / AMD 处理器）上运行 ARM 架构的 Android 应用成为可能，特别适合用于应用测试与集成开发场景。
@@ -102,6 +103,24 @@ services:
       - ro.enable.native.bridge.exec64=1
       - ro.dalvik.vm.native.bridge=libhoudini.so
 ```
+| 参数                              | 描述                                                                 | 默认值                                           |
+|-----------------------------------|----------------------------------------------------------------------|-------------------------------------------------|
+| androidboot.redroid_width         | 显示宽度                                                              | 720                                             |
+| androidboot.redroid_height        | 显示高度                                                              | 1280                                            |
+| androidboot.redroid_fps           | 显示帧率（GPU启用：30；未启用：15）                                     | 30（启用GPU）<br>15（未启用GPU）                 |
+| androidboot.redroid_dpi           | 显示DPI                                                               | 320                                             |
+| androidboot.use_memfd             | 使用 `memfd` 替代已废弃的 `ashmem`，计划默认启用                        | false                                           |
+| androidboot.use_redroid_overlayfs | 使用 `overlayfs` 共享 `/data` 分区<br>`/data-base`: 共享的 data 分区<br>`/data-diff`: 私有数据 | 0                        |
+| androidboot.redroid_net_ndns      | DNS服务器数量；未指定时默认使用 `8.8.8.8`                               | 0                                               |
+| androidboot.redroid_net_dns<1..N> | DNS服务器                                                             |                                                 |
+| androidboot.redroid_net_proxy_type | 代理类型：`static`、`pac`、`none`、`unassigned`                      |                                                 |
+| androidboot.redroid_net_proxy_host | 代理服务器地址                                                        |                                                 |
+| androidboot.redroid_net_proxy_port | 代理端口                                                             | 3128                                            |
+| androidboot.redroid_net_proxy_exclude_list | 排除代理的地址列表，多个用英文逗号分隔                         |                                                  |
+| androidboot.redroid_net_proxy_pac | PAC 脚本地址                                                          |                                                  |
+| androidboot.redroid_gpu_mode      | GPU模式：`auto`、`host`、`guest`<br>`guest`: 软件渲染<br>`host`: GPU加速<br>`auto`: 自动检测 | guest                       |
+| androidboot.redroid_gpu_node      | GPU节点，自动检测                                                     | auto-detect                                       |
+| ro.xxx                            | **DEBUG**：允许覆盖 `ro.xxx` 属性，例如：设置 `ro.secure=0` 可默认提供 root adb shell |                                    |
 
 ## Credits
 
