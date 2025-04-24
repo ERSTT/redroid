@@ -31,7 +31,7 @@
 - 镜像仅适用于 **x86_64 架构** 的设备。
 - 启动容器时请合理配置设备映射与挂载选项。
 - 在哪里提交问题: [https://github.com/ERSTT/redroid/issues⁠](https://github.com/ERSTT/redroid/issues)
-- 若仅运行支持 arm64-v8a 的游戏（例如明日方舟），建议删除 armeabi-v7a 和 armeabi 的 ABI，以提高稳定性。可以使用以下命令安装：
+- 若仅运行支持 arm64-v8a 的游戏（例如明日方舟），建议删除 armeabi-v7a 和 armeabi 的 ABI，以提高稳定性。或使用以下命令安装：
 
   ```bash
   pm install --abi arm64-v8a your_app.apk
