@@ -70,8 +70,8 @@ services:
     volumes:
       - /path/to/your/directory:/data
     command:
-      - androidboot.redroid_gpu_mode=auto
-      - androidboot.redroid_fps=60
+      - androidboot.redroid_gpu_mode=auto  #optional
+      - androidboot.redroid_fps=60  #optional
       - androidboot.use_memfd=1
       - ro.product.cpu.abilist=x86_64,x86,arm64-v8a,armeabi-v7a,armeabi
       - ro.product.cpu.abilist32=x86,armeabi-v7a,armeabi
@@ -96,8 +96,8 @@ services:
     volumes:
       - /path/to/your/directory:/data
     command:
-      - androidboot.redroid_gpu_mode=auto
-      - androidboot.redroid_fps=60
+      - androidboot.redroid_gpu_mode=auto  #optional
+      - androidboot.redroid_fps=60  #optional
       - androidboot.use_memfd=1
       - ro.product.cpu.abilist=x86_64,x86,arm64-v8a,armeabi-v7a,armeabi
       - ro.product.cpu.abilist32=x86,armeabi-v7a,armeabi
