@@ -54,7 +54,27 @@
 
      [https://www.google.com/android/uncertified/](https://www.google.com/android/uncertified/)
 
-## NDK 镜像 Docker Compose 示例
+## NDK 镜像
+
+### Docker / Podman 命令行示例
+
+```bash
+docker run -itd --rm --privileged \
+  --pull always \
+  -v /path/to/your/directory:/data \
+  -p 5555:5555 \
+  <ndk_image_tag>
+```
+
+```bash
+podman run -itd --rm --privileged \
+  --pull always \
+  -v /path/to/your/directory:/data \
+  -p 5555:5555 \
+  <ndk_image_tag>
+```
+
+### Docker Compose 示例
 
 ```yaml
 services:
@@ -67,20 +87,31 @@ services:
       - 5555:5555
     volumes:
       - /path/to/your/directory:/data
-    command:
-      - androidboot.redroid_gpu_mode=auto
-      - androidboot.redroid_fps=60
-      - androidboot.use_memfd=1
-      - ro.product.cpu.abilist=x86_64,x86,arm64-v8a,armeabi-v7a,armeabi
-      - ro.product.cpu.abilist32=x86,armeabi-v7a,armeabi
-      - ro.product.cpu.abilist64=x86_64,arm64-v8a
-      - ro.dalvik.vm.isa.arm=x86
-      - ro.dalvik.vm.isa.arm64=x86_64
-      - ro.enable.native.bridge.exec=1
-      - ro.dalvik.vm.native.bridge=libndk_translation.so
 ```
 
-## Houdini 镜像 Docker Compose 示例
+## Houdini 镜像
+
+### Docker / Podman 命令行示例
+
+```bash
+docker run -itd --rm --privileged \
+  --pull always \
+  -v /path/to/your/directory:/data \
+  -p 5555:5555 \
+  <houdini_image_tag> \
+  ro.dalvik.vm.native.bridge=libhoudini.so
+```
+
+```bash
+podman run -itd --rm --privileged \
+  --pull always \
+  -v /path/to/your/directory:/data \
+  -p 5555:5555 \
+  <houdini_image_tag> \
+  ro.dalvik.vm.native.bridge=libhoudini.so
+```
+
+### Docker Compose 示例
 
 ```yaml
 services:
@@ -94,25 +125,18 @@ services:
     volumes:
       - /path/to/your/directory:/data
     command:
-      - androidboot.redroid_gpu_mode=auto
-      - androidboot.redroid_fps=60
-      - androidboot.use_memfd=1
-      - ro.product.cpu.abilist=x86_64,x86,arm64-v8a,armeabi-v7a,armeabi
-      - ro.product.cpu.abilist32=x86,armeabi-v7a,armeabi
-      - ro.product.cpu.abilist64=x86_64,arm64-v8a
-      - ro.dalvik.vm.isa.arm=x86
-      - ro.dalvik.vm.isa.arm64=x86_64
-      - ro.enable.native.bridge.exec=1
-      - ro.enable.native.bridge.exec64=1
       - ro.dalvik.vm.native.bridge=libhoudini.so
 ```
+
+### 其他自定义参数
+
 | 参数                              | 描述                                                                 | 默认值                                           |
 |-----------------------------------|----------------------------------------------------------------------|-------------------------------------------------|
 | androidboot.redroid_width         | 显示宽度                                                              | 720                                             |
 | androidboot.redroid_height        | 显示高度                                                              | 1280                                            |
 | androidboot.redroid_fps           | 显示帧率（GPU启用：30；未启用：15）                                     | 30（启用GPU）<br>15（未启用GPU）                 |
 | androidboot.redroid_dpi           | 显示DPI                                                               | 320                                             |
-| androidboot.use_memfd             | 使用 `memfd` 替代已废弃的 `ashmem`，计划默认启用                        | false                                           |
+| androidboot.use_memfd             | 使用 `memfd` 替代已弃用的 `ashmem`，计划默认启用                        | false                                           |
 | androidboot.use_redroid_overlayfs | 使用 `overlayfs` 共享 `/data` 分区<br>`/data-base`: 共享的 data 分区<br>`/data-diff`: 私有数据 | 0                        |
 | androidboot.redroid_net_ndns      | DNS服务器数量；未指定时默认使用 `8.8.8.8`                               | 0                                               |
 | androidboot.redroid_net_dns<1..N> | DNS服务器                                                             |                                                 |
@@ -135,3 +159,4 @@ services:
 - [android_vendor_google_chromeos-x86](https://github.com/BlissRoms-x86/android_vendor_google_chromeos-x86)
 - [chromeos_ndk](https://github.com/ER5TT/ndk/tree/grunt_R134)
 - [chromeos_houdini](https://github.com/ER5TT/houdini/tree/brask_R127)
+
