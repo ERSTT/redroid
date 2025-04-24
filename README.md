@@ -1,4 +1,4 @@
-## English / [简体中文](https://github.com/ERSTT/redroid/blob/main/README_CN.md)
+## English / [简体中文](README_CN.md)
 # Redroid Docker Images with ARM / ARM64 Support
 
 This repository provides Redroid Docker images integrated with **Houdini** or **NDK Translation**, making it possible to run ARM architecture Android apps on an x86_64 platform (such as Intel / AMD processors). These images are especially useful for application testing and integration development.

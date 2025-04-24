@@ -1,4 +1,4 @@
-## [English](https://github.com/ERSTT/redroid/blob/main/README.md) / 简体中文
+## [English](README.md) / 简体中文
 # 支持 ARM / ARM64 的 Redroid Docker 镜像
 
 本仓库提供集成 **Houdini** 或 **NDK Translation** 的 Redroid Docker 镜像，使得在 x86_64 平台（如 Intel / AMD 处理器）上运行 ARM 架构的 Android 应用成为可能，特别适合用于应用测试与集成开发场景。
