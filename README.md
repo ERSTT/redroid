@@ -1,4 +1,4 @@
-## [English](#redroid-docker-images-with-arm--arm64-support) / [简体中文](https://github.com/ERSTT/redroid/blob/main/readme_cn.md)
+## English / [简体中文](https://github.com/ERSTT/redroid/blob/main/readme_cn.md)
 # Redroid Docker Images with ARM / ARM64 Support
 
 This repository provides Redroid Docker images integrated with **Houdini** or **NDK Translation**, making it possible to run ARM architecture Android apps on an x86_64 platform (such as Intel / AMD processors). These images are especially useful for application testing and integration development.
@@ -50,6 +50,8 @@ This repository provides Redroid Docker images integrated with **Houdini** or **
   2. Register the device ID at the following URL:
 
      [https://www.google.com/android/uncertified/](https://www.google.com/android/uncertified/)
+
+# Configuration
 
 ## NDK Image Docker Compose Example
 
@@ -103,6 +105,26 @@ services:
       - ro.enable.native.bridge.exec64=1
       - ro.dalvik.vm.native.bridge=libhoudini.so
 ```
+
+| Param                             | Description                                                                                           | Default                                        |
+|----------------------------------|--------------------------------------------------------------------------------------------------------|------------------------------------------------|
+| androidboot.redroid_width        | display width                                                                                          | 720                                            |
+| androidboot.redroid_height       | display height                                                                                         | 1280                                           |
+| androidboot.redroid_fps          | display FPS                                                                                            | 30(GPU enabled)<br>15 (GPU not enabled)        |
+| androidboot.redroid_dpi          | display DPI                                                                                            | 320                                            |
+| androidboot.use_memfd            | use `memfd` to replace deprecated `ashmem`<br>plan to enable by default                                | false                                          |
+| androidboot.use_redroid_overlayfs| use `overlayfs` to share `data` partition<br>`/data-base`: shared `data`<br>`/data-diff`: private data | 0                                              |
+| androidboot.redroid_net_ndns     | number of DNS server, `8.8.8.8` will be used if no DNS server specified                                | 0                                              |
+| androidboot.redroid_net_dns<1..N>| DNS                                                                                                    |                                                |
+| androidboot.redroid_net_proxy_type | Proxy type; choose from: `static`, `pac`, `none`, `unassigned`                                       |                                                |
+| androidboot.redroid_net_proxy_host|                                                                                                       |                                                |
+| androidboot.redroid_net_proxy_port|                                                                                                       | 3128                                           |
+| androidboot.redroid_net_proxy_exclude_list | comma separated list                                                                         |                                                |
+| androidboot.redroid_net_proxy_pac|                                                                                                        |                                                |
+| androidboot.redroid_gpu_mode     | choose from: `auto`, `host`, `guest`;<br>`guest`: use software rendering;<br>`host`: use GPU accelerated rendering;<br>`auto`: auto detect | guest      |
+| androidboot.redroid_gpu_node     |                                                                                                        | auto-detect                                    |
+| ro.xxx                           | **DEBUG** purpose, allow override `ro.xxx` prop; For example, set `ro.secure=0`, then root adb shell provided by default |                              |
+
 
 ## Credits
 
