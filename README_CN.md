@@ -18,6 +18,14 @@
 | `erstt/redroid:12.0.0_houdini_WSA`      | WSA 12L              | 12.0.0a_y.38818.m          | 12.0.0a_z.38818.m          | Intel / AMD                | 部分应用存在兼容性问题，建议测试验证后使用。 |
 | `erstt/redroid:13.0.0_houdini_ChromeOS` | ChromeOS nissa R134  | 13.0.1_y.39540.g           | 13.0.1_z.39540.g           | Intel                      | 部分应用存在兼容性问题，建议测试验证后使用。 |
 
+#### 附加说明：
+以下镜像版本也可用：
+
+`erstt/<android_version>_<houdini_or_ndk><_magisk><_litegapps>_ChromeOS`
+
+- `_magisk`（可选）：预装 Magisk
+- `_litegapps`（可选）：预装轻量级 Google Apps
+
 ## 使用建议
 
 - 镜像仅适用于 **x86_64 架构** 的设备。
