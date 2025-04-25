@@ -99,6 +99,7 @@ docker run -itd --rm --privileged \
   -v /path/to/your/directory:/data \
   -p 5555:5555 \
   <houdini_image_tag> \
+  ro.enable.nativa.bridge.exec64=1 \
   ro.dalvik.vm.native.bridge=libhoudini.so
 ```
 
@@ -108,6 +109,7 @@ podman run -itd --rm --privileged \
   -v /path/to/your/directory:/data \
   -p 5555:5555 \
   <houdini_image_tag> \
+  ro.enable.nativa.bridge.exec64=1 \
   ro.dalvik.vm.native.bridge=libhoudini.so
 ```
 
@@ -125,6 +127,7 @@ services:
     volumes:
       - /path/to/your/directory:/data
     command:
+      - ro.enable.nativa.bridge.exec64=1
       - ro.dalvik.vm.native.bridge=libhoudini.so
 ```
 
