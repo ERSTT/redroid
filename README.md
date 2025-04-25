@@ -1,4 +1,4 @@
-## English / [简体中文](README_CN.md)
+## English / [简体中文](https://github.com/ERSTT/redroid/blob/main/README_CN.md)
 # Redroid Docker Images with ARM / ARM64 Support
 
 This repository provides Redroid Docker images integrated with **Houdini** or **NDK Translation**, making it possible to run ARM architecture Android apps on an x86_64 platform (such as Intel / AMD processors). These images are especially useful for application testing and integration development.
@@ -101,6 +101,7 @@ docker run -itd --rm --privileged \
   -v /path/to/your/directory:/data \
   -p 5555:5555 \
   <houdini_image_tag> \
+  ro.enable.nativa.bridge.exec64=1 \
   ro.dalvik.vm.native.bridge=libhoudini.so
 ```
 
@@ -110,6 +111,7 @@ podman run -itd --rm --privileged \
   -v /path/to/your/directory:/data \
   -p 5555:5555 \
   <houdini_image_tag> \
+  ro.enable.nativa.bridge.exec64=1 \
   ro.dalvik.vm.native.bridge=libhoudini.so
 ```
 
@@ -127,6 +129,7 @@ services:
     volumes:
       - /path/to/your/directory:/data
     command:
+      - ro.enable.nativa.bridge.exec64=1
       - ro.dalvik.vm.native.bridge=libhoudini.so
 ```
 
