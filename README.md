@@ -1,4 +1,4 @@
-## English / [简体中文](https://github.com/ERSTT/redroid/blob/main/README_CN.md)
+## English / [简体中文](README_CN.md)
 # Redroid Docker Images with ARM / ARM64 Support
 
 This repository provides Redroid Docker images integrated with **Houdini** or **NDK Translation**, making it possible to run ARM architecture Android apps on an x86_64 platform (such as Intel / AMD processors). These images are especially useful for application testing and integration development.
@@ -56,7 +56,27 @@ The following image variants are also available:
 
 # Configuration
 
-## NDK Image Docker Compose Example
+## NDK Image
+
+### Docker / Podman Run Example
+
+```bash
+docker run -itd --rm --privileged \
+  --pull always \
+  -v /path/to/your/directory:/data \
+  -p 5555:5555 \
+  <ndk_image_tag>
+```
+
+```bash
+podman run -itd --rm --privileged \
+  --pull always \
+  -v /path/to/your/directory:/data \
+  -p 5555:5555 \
+  <ndk_image_tag>
+```
+
+### Docker Compose Example
 
 ```yaml
 services:
@@ -69,20 +89,31 @@ services:
       - 5555:5555
     volumes:
       - /path/to/your/directory:/data
-    command:
-      - androidboot.redroid_gpu_mode=auto  #optional
-      - androidboot.redroid_fps=60  #optional
-      - androidboot.use_memfd=1
-      - ro.product.cpu.abilist=x86_64,x86,arm64-v8a,armeabi-v7a,armeabi
-      - ro.product.cpu.abilist32=x86,armeabi-v7a,armeabi
-      - ro.product.cpu.abilist64=x86_64,arm64-v8a
-      - ro.dalvik.vm.isa.arm=x86
-      - ro.dalvik.vm.isa.arm64=x86_64
-      - ro.enable.native.bridge.exec=1
-      - ro.dalvik.vm.native.bridge=libndk_translation.so
 ```
 
-## Houdini Image Docker Compose Example
+## Houdini Image
+
+### Docker / Podman Run Example
+
+```bash
+docker run -itd --rm --privileged \
+  --pull always \
+  -v /path/to/your/directory:/data \
+  -p 5555:5555 \
+  <houdini_image_tag> \
+  ro.dalvik.vm.native.bridge=libhoudini.so
+```
+
+```bash
+podman run -itd --rm --privileged \
+  --pull always \
+  -v /path/to/your/directory:/data \
+  -p 5555:5555 \
+  <houdini_image_tag> \
+  ro.dalvik.vm.native.bridge=libhoudini.so
+```
+
+### Docker Compose Example
 
 ```yaml
 services:
@@ -96,18 +127,10 @@ services:
     volumes:
       - /path/to/your/directory:/data
     command:
-      - androidboot.redroid_gpu_mode=auto  #optional
-      - androidboot.redroid_fps=60  #optional
-      - androidboot.use_memfd=1
-      - ro.product.cpu.abilist=x86_64,x86,arm64-v8a,armeabi-v7a,armeabi
-      - ro.product.cpu.abilist32=x86,armeabi-v7a,armeabi
-      - ro.product.cpu.abilist64=x86_64,arm64-v8a
-      - ro.dalvik.vm.isa.arm=x86
-      - ro.dalvik.vm.isa.arm64=x86_64
-      - ro.enable.native.bridge.exec=1
-      - ro.enable.native.bridge.exec64=1
       - ro.dalvik.vm.native.bridge=libhoudini.so
 ```
+
+### Other custom settings
 
 | Param                             | Description                                                                                           | Default                                        |
 |----------------------------------|--------------------------------------------------------------------------------------------------------|------------------------------------------------|
@@ -139,3 +162,4 @@ services:
 - [android_vendor_google_chromeos-x86](https://github.com/BlissRoms-x86/android_vendor_google_chromeos-x86)
 - [chromeos_ndk](https://github.com/ER5TT/ndk/tree/grunt_R134)
 - [chromeos_houdini](https://github.com/ER5TT/houdini/tree/brask_R127)
+
