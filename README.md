@@ -154,6 +154,13 @@ services:
 | androidboot.redroid_gpu_node     |                                                                                                        | auto-detect                                    |
 | ro.xxx                           | **DEBUG** purpose, allow override `ro.xxx` prop; For example, set `ro.secure=0`, then root adb shell provided by default |                              |
 
+## License
+
+This project is based on the [Redroid Project](https://github.com/remote-android).
+
+- *redroid* itself is under [Apache License](https://www.apache.org/licenses/LICENSE-2.0), since *redroid* includes 
+many 3rd party modules, you may need to examine license carefully.
+- *redroid* kernel modules are under [GPL v2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
 ## Credits
 
